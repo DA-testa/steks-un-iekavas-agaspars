@@ -40,7 +40,6 @@ def find_mismatch(text):
 
 def main():
     text = input()
-    print("OUTPUT:")
     mismatch = find_mismatch(text)
     opening_brackets_stack=find_mismatch(text)
     # print("PRINTING FROM MAIN:", opening_brackets_stack)

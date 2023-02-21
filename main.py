@@ -30,9 +30,9 @@ def find_mismatch(text):
 
         if next in ")]}":
             if(not opening_brackets_stack or not are_matching(opening_brackets_stack[len(opening_brackets_stack)-1], Bracket(next,i+1))):
-                print(i+1)
-                # return 0
-                sys.exit(0)
+                # print(i+1)
+                return i+1
+                # sys.exit(0)
             opening_brackets_stack.pop()
             # pass
     return opening_brackets_stack
@@ -44,10 +44,17 @@ def main():
     opening_brackets_stack=find_mismatch(text)
     # print("PRINTING FROM MAIN:", opening_brackets_stack)
     # Printing answer, write your code here
-    if(not opening_brackets_stack):
-        print("Success")
+    if(not mismatch):    
+        if(not opening_brackets_stack):
+            print("Success")
+        else:
+            try:
+                print(opening_brackets_stack[len(opening_brackets_stack)-1].position)
+            except:
+                sys.exit(0)
     else:
-        print(opening_brackets_stack[len(opening_brackets_stack)-1].position)
+        print(mismatch)
+        
 
 
 if __name__ == "__main__":

@@ -8,14 +8,14 @@ Bracket = namedtuple("Bracket", ["char", "position"])
 def are_matching(left, right):
     # return (left + right) in ["()", "[]", "{}"]
     # print("INSIDE THE FUNCTION:")
-    type = left.char
-    c = right.char
+    lef = left.char
+    righ = right.char
     # print("LEFT: ", type , "  RIGHT: ", c)
-    if (type == '[' and c == ']'):
+    if (lef == '[' and righ == ']'):
       return True
-    if (type == '{' and c == '}'):
+    if (lef == '{' and righ == '}'):
       return True
-    if (type == '(' and c == ')'):
+    if (lef == '(' and righ == ')'):
       return True
     return False
 
@@ -41,17 +41,9 @@ def find_mismatch(text):
 def main():
     text = input()
     mismatch = find_mismatch(text)
-    opening_brackets_stack=find_mismatch(text)
-    # print("PRINTING FROM MAIN:", opening_brackets_stack)
     # Printing answer, write your code here
     if(not mismatch):    
-        if(not opening_brackets_stack):
-            print("Success")
-        else:
-            try:
-                print(opening_brackets_stack[len(opening_brackets_stack)-1].position)
-            except:
-                sys.exit(0)
+        print("Success")
     else:
         print(mismatch)
         
